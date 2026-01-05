@@ -1,11 +1,11 @@
-import { CartItem, FeaturedProductsProps, Product } from "@/app/page";
+import { CartItem, Product } from "@/app/page";
 import { addToCart, featuredProducts } from "@/data/demo";
 import { ChevronRight, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 
-const FeaturedProductsSection: React.FC<FeaturedProductsProps> = () => {
+const FeaturedProductsSection: React.FC = () => {
     const products = featuredProducts as Product[];
     const handleAddToCart = (product: Product) => {
         const updatedCart = addToCart(product) as CartItem[];
