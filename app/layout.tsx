@@ -3,6 +3,7 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const sora = Sora({
   variable: "--font-sora",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     address: true,
     telephone: true,
   },
-  metadataBase: new URL("https://ksmfruits.com"),
+  metadataBase: new URL("https://www.ksmfruits.in"),
   alternates: {
     canonical: "/",
   },
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     title: "KSM Fruits | Freshness Meets Flavor",
     description:
       "Premium quality fresh and exotic fruits delivered straight from farms to your table in Udupi.",
-    url: "https://ksmfruits.com",
+    url: "https://www.ksmfruits.in",
     siteName: "KSM Fruits",
     images: [
       {
@@ -85,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sora.className} antialiased`}>
+        <GoogleAnalytics gaId="G-YLTB991131" />
         <Header />
         {children}
         <Footer />
