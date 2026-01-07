@@ -4,7 +4,7 @@ import { Award, Clock, Users } from "lucide-react";
 
 function About() {
   return (
-    <section id="about" className="py-20 bg-gray-100 overflow-hidden">
+    <section id="about" className="py-24 bg-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
           {/* Decorative background glass elements */}
@@ -79,24 +79,24 @@ function About() {
                   <span className="text-[#285430] font-bold">51 years</span>.
                 </p>
 
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   What began as a modest wholesale fruit venture has blossomed
                   into a leading enterprise admired for its unwavering
                   commitment to quality, freshness, and customer satisfaction.
                 </p>
 
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   Guided by integrity and a passion for excellence, KSM Fruits
                   brings the finest fruits from across the country—including
                   seasonal varieties and premium imports—straight to the plates
                   of consumers.
                 </p>
 
-                <div className="pt-6 border-t border-gray-100 italic text-gray-500 text-lg leading-relaxed">
+                {/* <div className="pt-6 border-t border-gray-100 italic text-gray-500 text-lg leading-relaxed">
                   &quot;With every supply, the company celebrates a legacy of
                   trust, taste, and enduring relationships built over five
                   decades.&quot;
-                </div>
+                </div> */}
               </div>
 
               <div className="mt-10 flex flex-wrap gap-8">

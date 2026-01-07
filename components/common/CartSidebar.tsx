@@ -31,21 +31,16 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({
 }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const [total, setTotal] = useState(0);
   const typedStoreInfo = storeInfo as StoreInfo;
-
-  useEffect(() => {
-    if (isOpen) {
-      const newCart = getCart() as CartItem[];
-      setCart(newCart);
-    }
-  }, [isOpen]);
 
   useEffect(() => {
     const handleCartUpdate = () => {
       const newCart = getCart() as CartItem[];
       setCart(newCart);
     };
+
+    // Initial load when the component mounts
+    handleCartUpdate();
 
     window.addEventListener("cartUpdated", handleCartUpdate);
 
@@ -55,11 +50,8 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({
   }, []);
 
   useEffect(() => {
-    const newTotal = cart.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
-    setTotal(newTotal);
+    // Total calculation is no longer straightforward with price ranges
+    // Prices are displayed as ranges in the UI and WhatsApp message
   }, [cart]);
 
   if (!isOpen) return null;
@@ -72,14 +64,12 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({
 
     let message = `Hello! I'd like to order the following items:\n\n`;
     cart.forEach((item: CartItem) => {
-      message += `• ${item.name} - ${item.quantity} ${item.unit} @ ₹${
-        item.price
-      }/${item.unit} = ₹${item.price * item.quantity}\n`;
+      message += `• ${item.name} - ${item.quantity} ${item.unit} (Market Price: ₹${item.price}/${item.unit})\n`;
     });
 
-    message += `\nTotal: ₹${total}\n\nThank you!`;
+    message += `\nTotal: Market Price\n\nThank you!`;
 
-    const whatsappUrl = `https:
+    const whatsappUrl = `https://wa.me/${
       typedStoreInfo.whatsapp
     }?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
@@ -146,7 +136,9 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({
                   key={item.id}
                   className="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg"
                 >
-                  <Image height={100} width={100}
+                  <Image
+                    height={100}
+                    width={100}
                     src={item.image}
                     alt={item.name}
                     className="w-20 h-20 object-cover rounded-lg"
@@ -197,8 +189,8 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({
           <div className="border-t border-gray-300 p-6 space-y-4">
             <div className="flex items-center justify-between text-lg">
               <span className="font-semibold text-gray-900">Total:</span>
-              <span className="text-2xl font-bold text-[#FF7B00]">
-                ₹{total}
+              <span className="text-xl font-bold text-[#FF7B00]">
+                Market Price
               </span>
             </div>
             <button
