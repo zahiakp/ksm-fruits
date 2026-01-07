@@ -1,5 +1,6 @@
 import { aboutImage } from "@/data/demo";
 import { Award, Heart, Leaf } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const AboutSection: React.FC = () => (
@@ -67,7 +68,7 @@ const AboutSection: React.FC = () => (
           </Link>
         </div>
         <div className="order-1 lg:order-2">
-          <img
+          <Image fill
             src={aboutImage}
             alt="Fresh produce at our store"
             className="rounded-2xl shadow-xl w-full h-[400px] lg:h-[500px] object-cover"

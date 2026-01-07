@@ -11,7 +11,8 @@ export interface Product {
   image: string;
   inStock: boolean;
   description: string;
-  price: number;
+  category?: string | undefined;
+  price: string;
   unit: string;
 }
 

@@ -1,14 +1,11 @@
-import React from 'react';
-import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
-import { storeInfo } from '../../data/demo'; 
+import React from "react";
+import Link from "next/link";
+import { Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
+import { storeInfo } from "../../data/demo";
 import { PiWhatsappLogo } from "react-icons/pi";
 
-
-
-
-
 interface Location {
-  id: string | number; 
+  id: string | number;
   name: string;
   address: string;
 }
@@ -22,12 +19,6 @@ interface StoreInfo {
   phone: string;
   email: string;
 }
-
-
-
-
-
-
 
 const Footer: React.FC = () => {
   return (
@@ -74,7 +65,9 @@ const Footer: React.FC = () => {
 
           {/* Our Locations */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-secondary">Our Locations</h3>
+            <h3 className="text-lg font-bold mb-4 text-secondary">
+              Our Locations
+            </h3>
             <div className="space-y-4">
               {/* Explicitly type 'location' for type safety in the map function */}
               {storeInfo.locations.map((location: Location) => (
@@ -94,8 +87,10 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact & Quick Links */}
-          <div className='md:ml-10'>
-            <h3 className="text-lg font-bold mb-4 text-secondary">Contact Us</h3>
+          <div className="md:ml-10">
+            <h3 className="text-lg font-bold mb-4 text-secondary">
+              Contact Us
+            </h3>
             <div className="space-y-3 mb-6">
               <a
                 href={`tel:${storeInfo.phone}`}
@@ -113,27 +108,29 @@ const Footer: React.FC = () => {
               </a>
             </div>
 
-            <h4 className="text-lg font-semibold mb-3 text-secondary">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-3 text-secondary">
+              Quick Links
+            </h4>
             <ul className="space-y-2 text-gray-200">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/privacy-policy"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/terms-of-service"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/sitemap.xml"
                   className="hover:text-white transition-colors duration-200"
                 >
                   Sitemap
@@ -149,7 +146,11 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} KSM Fruits. All rights reserved.
           </p>
           <a href="https://abaqas.in" className="text-sm">
-           ⚡<span className="hover:text-white text-white hover:underline"> abaqas.in</span>
+            ⚡
+            <span className="hover:text-white text-white hover:underline">
+              {" "}
+              abaqas.in
+            </span>
           </a>
         </div>
       </div>
