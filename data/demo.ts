@@ -294,7 +294,7 @@ export const allProducts = [
     name: "Pomegranate",
     price: "140 - 200",
     unit: "kg",
-    image: "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe",
+    image: "https://plus.unsplash.com/premium_photo-1668076515507-c5bc223c99a4",
     description: "Nutrient-rich ruby red pomegranates with sweet arils",
     category: "seasonal",
     inStock: true,
